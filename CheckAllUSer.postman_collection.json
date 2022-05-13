@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "d8ebb1ac-dba7-452c-8536-3640eea1b0b3",
+		"name": "CheckAllUSer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "searchUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "var requestOptions = {\r\n  method: 'GET',\r\n  redirect: 'follow'\r\n};\r\n\r\nfetch(\"https://reqres.in/api/users?page=2\", requestOptions)\r\n  .then(response => response.text())\r\n  .then(result => console.log(result))\r\n  .catch(error => console.log('error', error));",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
